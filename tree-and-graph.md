@@ -77,8 +77,35 @@ merge | Θ(n)
 Priority queues are useful for any application that involves processing elements based on some priority. It supports two major operations insert(object) and deleteMin(). The elements of a priority queue must be comparable to each other, either through the Comparable or Comparator interfaces.
 
 ### heap in python 
+Heap can be used by 
+```
+import heapq
+```
+Here are methods inside this module
 
+* heapq.heappush(heap,item) : 
+Push the value item onto the heap, maintaining the heap invariant.
 
+* heapq.heappop(heap):
+Pop and return the smallest item from the heap, maintaining the heap invariant. If the heap is empty, IndexError is raised. To access the smallest item without popping it, use heap[0].
+
+* heapq.heapify(x):
+Transform list x into a heap, in-place, in linear time.
+* heapq.nlargest(n, iterable[, key]):
+Return a list with the n largest elements from the dataset defined by iterable. key, if provided, specifies a function of one argument that is used to extract a comparison key from each element in the iterable: key=str.lower Equivalent to: sorted(iterable, key=key, reverse=True)[:n]
+
+Note that Heap elements can be tuples. This is useful for assigning comparison values (such as task priorities) alongside the main record being tracked:
+
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+the first elements of tuples with be heapified
 ## Graph search
 
 ### BFS
