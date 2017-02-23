@@ -32,7 +32,80 @@ Quickselect is a selection algorithm to find the kth smallest element in an unor
 
 ### Common sorting algorithm
 
-Sort in Python:
+#### Bubble Sort | Runtime O(O^2) average and worst case. Memory O(1)
+
+```
+def bubbleSort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(1,n-1):
+            if arr[j-1] > arr[j]:
+                arr[j-1],arr[j] = arr[j], arr[j-1]
+    return arr
+```
+
+#### Selection Sort | Runtime O(O^2) average and worst case. Memory O(1)
+
+Steps:
+1. choose the min(max) value in an unordered list and put it in the begin
+2. repeat the same process for the rest
+
+```
+def select_sort(ary):
+    n = len(ary)
+    for i in range(0,n):
+        min = i                             #find the min index
+        for j in range(i+1,n):
+            if ary[j] < ary[min] :
+                min = j     
+        ary[min],ary[i] = ary[i],ary[min]   #exchange
+    return ary
+```
+
+#### Merge Sort | Runtime O(nlog(n)) average and worst case. Memory O(n)
+
+Merge sort divides then array in half, sorts each of those halves, and then merges them back together. Each of those halves has the same sorting algorithm applied to it. Eventually, you are merging just two single-element arrays. It is the “merge” part that does all the heavy lifting.
+
+The merge method operates by copying all the elements from the target array segment into a helper array, keeping track of where the start of the left and right halves should be (**helperLeft** and **helperRight**).
+
+```
+void mergesort(int[] array){
+    int[] helper = new int[array.length];
+    mergesort(array, helper, 0, array.length - 1)
+}
+
+void merge(int[] array, int[] helper, int low, int middle, int high){
+    for (int i = low; i <= high; i++){
+        helper[i] = array[i];
+    }
+
+    int helperLeft = low;
+    int helperRight = middle + 1;
+    int current = low;
+
+    while (helperLeft <= middle && helperRight <= high){
+        if (helper[helperLeft] <= helper[helperRight]){
+            array[current] = helper[helperLeft];
+            helperLefting;
+        }
+        else {
+            array[current] = helper[helperRight];
+            helperRight++;
+        }
+        current++;
+    }
+
+    int remaining = middle - helperLeft;
+    for (int i = 0; i <= remaining; i++){
+        array[current + i] = helper[helperLeft + i];
+    }
+}
+```
+You may notice that only the remaining elements from the left half of the helper array are copied into the target array. Why not the right half? The right half doesn't need to be copied because it's already there.
+
+
+
+### Sorted in Python:
 
 ```
 intervals = sorted(intervals, key = lambda x : x.start)
