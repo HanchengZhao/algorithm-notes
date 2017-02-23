@@ -16,7 +16,7 @@
 inorder(node)
   if (node = null)
     return
-    
+
   inorder(node.left)
   visit(node)
   inorder(node.right)
@@ -61,7 +61,7 @@ A binary heap is a complete binary tree which satisfies the heap ordering proper
 
 * the min-heap property: the value of each node is greater than or equal to the value of its parent, with the minimum-value element at the root.
 * the max-heap property: the value of each node is less than or equal to the value of its parent, with the maximum-value element at the root.
- 
+
 #### Time complexity
 
 Operation | Time Complexity
@@ -76,14 +76,14 @@ merge | Θ(n)
 ### Priority Queue
 Priority queues are useful for any application that involves processing elements based on some priority. It supports two major operations insert(object) and deleteMin(). The elements of a priority queue must be comparable to each other, either through the Comparable or Comparator interfaces.
 
-### heap in python 
-Heap can be used by 
+### heap in python
+Heap can be used by
 ```
 import heapq
 ```
 Here are methods inside this module
 
-* heapq.heappush(heap,item) : 
+* heapq.heappush(heap,item) :
 Push the value item onto the heap, maintaining the heap invariant.
 
 * heapq.heappop(heap):
@@ -149,3 +149,11 @@ For each v is the neighbor of u
         DFS_Visit(v)
 Color[u] = BLACK
 ```
+
+### Topological sort
+[topological sort from geeksforgeeks](http://www.geeksforgeeks.org/topological-sorting/http://note.youdao.com/)
+
+Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
+
+#### Algorithm to find Topological Sorting:
+We recommend to first see implementation of DFS here. We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, we use a temporary stack. We don’t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.
