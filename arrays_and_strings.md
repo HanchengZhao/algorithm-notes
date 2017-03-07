@@ -12,7 +12,7 @@ Seperate chaining is easier to implement, but needs extra space
 
 ### 2. open addressing
 ![image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Hash_table_5_0_1_1_1_1_0_SP.svg/380px-Hash_table_5_0_1_1_1_1_0_SP.svg.png)
-In another strategy, called open addressing, all entry records are stored in the bucket array itself. When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some probe sequence, until an unoccupied slot is found.
+In another strategy, called open addressing, all entry records are stored in the bucket array itself. When a new entry has to be inserted, the buckets are examined, starting with the hashed-to slot and proceeding in some probe sequence, until an unoccupied slot is found. 
 
 Well-known probe sequences include:
 
@@ -24,3 +24,14 @@ Open addressing does not need extra space, but needs well-designed hash fuctions
 
 ### Exercise
 [Two sum](https://leetcode.com/problems/two-sum/?tab=Descriptionte.youdao.com/)
+
+
+# Array
+Exercise:
+
+#### intervals:
+When dealing with the interval merge, make sure that all intervals are sorted, then traverse, compare and merge.
+
+[Merge Interval](https://leetcode.com/problems/merge-intervals/?tab=Description)
+
+[Insert Interval](https://leetcode.com/problems/insert-interval/?tab=Description)

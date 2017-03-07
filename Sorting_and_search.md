@@ -2,7 +2,7 @@
 
 ### Binary search
 Use binary search to find the index
-
+- recurtion:
 ```
     def binarySearch(self, nums, target, index):
         if not nums:
@@ -16,6 +16,19 @@ Use binary search to find the index
             return self.binarySearch(nums[:mid], target, index)
 ```
 
+- iteration:
+
+```
+ while left <= right:
+            mid = (left + right) / 2
+            if citations[mid] == leng - mid:
+                return citations[mid]
+            elif citations[mid] > leng - mid:
+                right = mid-1
+            else:
+                left = mid+1
+```
+
 
 
 
@@ -24,7 +37,7 @@ Use binary search to find the index
 
 ### Quickselect
 
-Quickselect is a selection algorithm to find the kth smallest element in an unordered list.
+Quickselect is a selection algorithm to find the kth smallest element in an unordered list. 
 
 [hkth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 
@@ -48,7 +61,7 @@ def bubbleSort(arr):
 
 Steps:
 1. choose the min(max) value in an unordered list and put it in the begin
-2. repeat the same process for the rest
+2. repeat the same process for the rest 
 
 ```
 def select_sort(ary):
@@ -61,6 +74,8 @@ def select_sort(ary):
         ary[min],ary[i] = ary[i],ary[min]   #exchange
     return ary
 ```
+
+#### Insertion Sort | Runtime O(O^2) average and worst case. Memory O(1)
 
 #### Merge Sort | Runtime O(nlog(n)) average and worst case. Memory O(n)
 
@@ -103,6 +118,37 @@ void merge(int[] array, int[] helper, int low, int middle, int high){
 ```
 You may notice that only the remaining elements from the left half of the helper array are copied into the target array. Why not the right half? The right half doesn't need to be copied because it's already there.
 
+#### Quick Sort | Runtime O(nlog(n)) average and worst case. Memory O(log(n)
+
+In quick sort, we pick a random element and partition the array, such that all numbers that are less than the partitioning element come before all elements that are greater than it. The partitioning can be performed efficiently through a series of swaps.
+
+```
+void quickSort(int arr[], int left, int right){
+    int index = partition(arr, left, right);
+    if (left < index - 1){
+        quickSort(arr, left, index - 1);
+    }
+    if (index < right){
+        quickSort(arr, index, right);
+    }
+}
+
+int partition(int arr[], int left, int right){
+    int pivot = arr[(left + right) / 2];
+    while (left <= right){
+        while (arr[left] < pivot) left++;
+        while (arr[right] > pivot) right--;
+
+        // Swap elements, and move left and right indices
+        if (left <= right){
+            swap(arr, left, right);
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
+```
 
 
 ### Sorted in Python:
