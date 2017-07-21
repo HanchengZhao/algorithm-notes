@@ -48,8 +48,39 @@ while head and head.next:
     head = nextnode
 ```
 
-
-
-
 https://leetcode.com/problems/swap-nodes-in-pairs/?tab=Description
 
+2. Reverse a linked list:
+- recursive solution:
+    
+```py
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p
+```
+
+
+- iterative solution:
+    
+```js
+var reverseList = function(head) {
+    var newHead = null;
+    var next;
+    while(head !== null){
+        next = head.next;
+        head.next = newHead;
+        newHead = head;
+        head = next;
+    }
+    return newHead;
+};
+```

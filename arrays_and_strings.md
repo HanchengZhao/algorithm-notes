@@ -35,3 +35,7 @@ When dealing with the interval merge, make sure that all intervals are sorted, t
 [Merge Interval](https://leetcode.com/problems/merge-intervals/?tab=Description)
 
 [Insert Interval](https://leetcode.com/problems/insert-interval/?tab=Description)
+
+# String
+
+### sliding window technique
